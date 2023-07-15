@@ -39,7 +39,7 @@ async function addItem (request, response) {
         }
         
         if (useCloudant) {
-            //begin here for cloudant
+            
 
             
         } else {
@@ -60,7 +60,8 @@ async function addItem (request, response) {
 //** week 6, get all items from the json database*/
 app.get("/get/items", getItems)
 async function getItems (request, response) {
-    //begin here
+    var data = await fsPromises.readFile("database.json");
+    response.json(JSON.parse(data));
 
 };
 
